@@ -77,13 +77,19 @@ export class App extends Component {
       this.closeModal();
     }
   };
+  resetPage = () => {
+    this.setState({ page: 1 });
+  };
 
   render() {
     const { images, isLoading, page, selectedImage, showModal } = this.state;
 
     return (
       <div className={css.App}>
-        <Searchbar handleSearch={this.handleSearch} />
+        <Searchbar
+          handleSearch={this.handleSearch}
+          resetPage={this.resetPage}
+        />
         <ImageGallery images={images} openModal={this.openModal} />
         {isLoading && <Loader />}
         {images && images.length > 0 && (

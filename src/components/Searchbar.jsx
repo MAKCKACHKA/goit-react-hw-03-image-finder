@@ -17,6 +17,7 @@ class Searchbar extends Component {
     console.log(this.state);
     this.props.handleSearch(this.state.value);
     this.setState({ value: '' });
+    this.props.resetPage();
   };
 
   render() {
